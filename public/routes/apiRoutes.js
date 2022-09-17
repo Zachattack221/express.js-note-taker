@@ -34,10 +34,10 @@ module.exports = function (app) {
         console.log('Note added successfully');
 
         res.json(note);
-    })
-
-    application.delete('/api/notes/:id', (req, res) => {
-
-
     });
+
+    // application.delete('/api/notes/:id', (req, res) => {
+
+
+    // });
 };
