@@ -36,7 +36,7 @@ module.exports = (app) => {
         res.json(note);
     });
 
-    application.delete('/api/notes/:id', (req, res) => {
+    app.delete('/api/notes/:id', (req, res) => {
         let noteId = req.params.id.toString();
 
         console.log('DELETE request sent');
