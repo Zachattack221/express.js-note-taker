@@ -8,6 +8,7 @@ const { v4: uuidv4 } = require('uuid');
 module.exports = (app) => {
 
     app.get('/api/notes', (req, res) => {
+
         console.log('GET notes request sent');
 
         let note = JSON.parse(fs.readFileSync('./db/db.json', 'utf8'));
@@ -17,7 +18,7 @@ module.exports = (app) => {
 
     app.post('/api/notes', (req, res) => {
 
-        const newNote = request.body;
+        const newNote = req.body;
 
         console.log('POST request sent');
 
@@ -27,25 +28,25 @@ module.exports = (app) => {
         let note = JSON.parse(fs.readFileSync('./db/db.json', 'utf8'));
 
         // adds new note into db.json 
-        note.push(newNote);
+        newNote.push(note);
 
-        fs.writeFileSync('./db/db.json', JSON.stringify(note));
+        fs.writeFileSync('./db/db.json', JSON.stringify(newNote));
 
         console.log('Note added successfully');
 
-        res.json(note);
+        res.json(newNote);
     });
 
     app.delete('/api/notes/:id', (req, res) => {
-        let noteId = req.params.id.toString();
+        let noteId = req.params.id;
 
         console.log('DELETE request sent');
 
         let existingNotes = JSON.parse(fs.readFileSync('./db/db.json', 'utf8'));
 
-        let remainingNotes = existingNotes.filter( item => item.id.toString() !== noteId);
+        let remainingNotes = existingNotes.filter(item => item.id.toString() !== noteId);
 
-        fs.writeFileSync('db/db.json', JSON.stringify(remainingNotes));
+        fs.writeFileSync('./db/db.json', JSON.stringify(remainingNotes));
         res.json(remainingNotes);
     });
 };
