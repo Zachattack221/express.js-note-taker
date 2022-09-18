@@ -12,6 +12,8 @@ module.exports = (app) => {
         console.log('GET notes request sent');
 
         let note = JSON.parse(fs.readFileSync('./db/db.json', 'utf8'));
+        
+        console.log(JSON.stringify(note));
 
         res.json(note);
     });
@@ -20,7 +22,7 @@ module.exports = (app) => {
 
         const newNote = req.body;
 
-        console.log('POST request sent');
+        console.log(JSON.stringify(newNote));
 
         // pulls in unique id
         newNote.id = uuidv4();
@@ -28,25 +30,28 @@ module.exports = (app) => {
         let note = JSON.parse(fs.readFileSync('./db/db.json', 'utf8'));
 
         // adds new note into db.json 
-        newNote.push(note);
+        note.push(newNote)
 
-        fs.writeFileSync('./db/db.json', JSON.stringify(newNote));
+        fs.writeFileSync('./db/db.json', JSON.stringify(note));
 
         console.log('Note added successfully');
 
-        res.json(newNote);
+        res.json(note);
     });
 
     app.delete('/api/notes/:id', (req, res) => {
         let noteId = req.params.id;
 
-        console.log('DELETE request sent');
+        console.log(`DELETE request sent for ${noteId}`);
 
         let existingNotes = JSON.parse(fs.readFileSync('./db/db.json', 'utf8'));
 
         let remainingNotes = existingNotes.filter(item => item.id.toString() !== noteId);
 
         fs.writeFileSync('./db/db.json', JSON.stringify(remainingNotes));
+        console.log(`deleted: ${noteId}`);
+
         res.json(remainingNotes);
     });
 };
+
