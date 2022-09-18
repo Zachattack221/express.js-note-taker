@@ -1,5 +1,3 @@
-// const path = require('path');
-// const { application } = require('express');
 const fs = require('fs');
 
 // pulled in uuid dependency to assign notes a unique id
@@ -14,7 +12,6 @@ module.exports = (app) => {
         let note = JSON.parse(fs.readFileSync('db/db.json', 'utf8'));
         
         console.log(JSON.stringify(note));
-
         res.json(note);
     });
 
@@ -27,6 +24,7 @@ module.exports = (app) => {
         // pulls in unique id
         newNote.id = uuidv4();
 
+        // Parses data from existing saved notes in db.json
         let note = JSON.parse(fs.readFileSync('db/db.json', 'utf8'));
 
         // adds new note into db.json 
@@ -35,7 +33,6 @@ module.exports = (app) => {
         fs.writeFileSync('db/db.json', JSON.stringify(note));
 
         console.log('Note added successfully');
-
         res.json(note);
     });
 
@@ -43,10 +40,10 @@ module.exports = (app) => {
        
         let existingNotes = JSON.parse(fs.readFileSync('db/db.json', 'utf8'));
 
+        // filtering out selected note to delete
         const remainingNotes = existingNotes.filter(item => item.id !== req.params.id);
 
         fs.writeFileSync('db/db.json', JSON.stringify(remainingNotes));
-
         res.json(remainingNotes);
     });
 };
