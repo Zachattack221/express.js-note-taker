@@ -40,16 +40,12 @@ module.exports = (app) => {
     });
 
     app.delete('/api/notes/:id', (req, res) => {
-        let noteId = req.params.id;
-
-        console.log(`DELETE request sent for ${noteId}`);
-
+       
         let existingNotes = JSON.parse(fs.readFileSync('db/db.json', 'utf8'));
 
-        const remainingNotes = existingNotes.filter(item => item.id.toString() !== noteId);
+        const remainingNotes = existingNotes.filter(item => item.id !== req.params.id);
 
         fs.writeFileSync('db/db.json', JSON.stringify(remainingNotes));
-        console.log(`deleted: ${noteId}`);
 
         res.json(remainingNotes);
     });
