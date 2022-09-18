@@ -1,5 +1,5 @@
 const fs = require('fs');
-
+// const db/db.json
 // pulled in uuid dependency to assign notes a unique id
 const { v4: uuidv4 } = require('uuid');
 
