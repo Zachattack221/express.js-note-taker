@@ -21,5 +21,6 @@
   "bugs": {
     "url": "https://github.com/Zachattack221/express.js-note-taker/issues"
   },
-  "homepage": "https://github.com/Zachattack221/express.js-note-taker#readme"
+  "homepage": "https://github.com/Zachattack221/express.js-note-taker#readme",
+  "devDependencies": {}
 }

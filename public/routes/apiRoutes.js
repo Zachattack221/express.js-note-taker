@@ -29,7 +29,7 @@ module.exports = function (app) {
         // adds new note into db.json 
         note.push(newNote);
 
-        fs.writeFileSync('./db/db.json', JSON.stringify(notes));
+        fs.writeFileSync('./db/db.json', JSON.stringify(note));
 
         console.log('Note added successfully');
 
