@@ -7,7 +7,7 @@
 4. [License](#license)
 
 ## Description
-[Deployed Application](
+[Deployed Application](https://express-note-taker-utility.herokuapp.com/)
 This application provides the user with note taking platform, utilizing Express.js as an npm module and facilitating data requests and responses. Demonstrative of a mock back-end process, this application uses a JSON file to save/store information. 
 
 ## Installation
