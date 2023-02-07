@@ -7,8 +7,8 @@
 4. [License](#license)
 
 ## Description
-[Deployed Site Entry Page](https://guarded-river-09087.herokuapp.com/)
-This application provides the user with note taking platform, on that allows for content permanence via heroku as a stand-in database. This application utilizes Express.js as an npm module, facilitating data requests and responses.
+[Deployed Application](
+This application provides the user with note taking platform, utilizing Express.js as an npm module and facilitating data requests and responses. Demonstrative of a mock back-end process, this application uses a JSON file to save/store information. 
 
 ## Installation
 Run 'npm i' within the console, located at the root level of the directory. This will pull in the necessary node modules/packages.
