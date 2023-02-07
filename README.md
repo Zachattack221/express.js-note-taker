@@ -4,6 +4,7 @@
 1. [Description](#description)
 2. [Installation](#installation)
 3. [Visuals](#visuals)
+4. [License](#license)
 
 ## Description
 [Deployed Site Entry Page](https://guarded-river-09087.herokuapp.com/)
@@ -19,3 +20,6 @@ This will open a port at localhost:3000, accessible when 'localhost:3000' search
 ## Visuals
 ![Entry Page](./images/indexScreenshot.png)
 ![Notes Page](./images/notesScreenshot.png)
+
+## License
+This application is licensed with the MIT License.
